@@ -1,6 +1,6 @@
 # A Ubuntu 16.04 image with opencv.
 FROM        ubuntu:16.04
-MAINTAINER realddocker
+MAINTAINER  realddocker
 
 
 run     apt-get update
