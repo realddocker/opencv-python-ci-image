@@ -26,7 +26,19 @@ RUN apt-get update && \
         libpq-dev \
         clang \
         swig \
+	python-dev \
+	python-tk \
+	python-numpy \
+	python3-dev \
+	python3-tk \
+	python3-numpy \
         cppcheck
+	
+# Install pip
+RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
+	python get-pip.py && \
+	rm get-pip.py
+
 # Install useful Python packages using apt-get to avoid version incompatibilities with Tensorflow binary
 # especially numpy, scipy, skimage and sklearn (see https://github.com/tensorflow/tensorflow/issues/2034)
 RUN apt-get update && apt-get install -y \
