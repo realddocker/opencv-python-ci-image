@@ -2,9 +2,6 @@
 FROM        ubuntu:16.04
 MAINTAINER  realddocker
 
-
-run     apt-get update
-
 # clang and cppcheck have been added perform code quality checks.
 RUN apt-get update && \
         apt-get install -y \
