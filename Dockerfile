@@ -32,8 +32,14 @@ RUN apt-get update && \
 	python3-dev \
 	python3-tk \
 	python3-numpy \
+	libeigen3-dev \
+	libopenexr-dev \
 	curl \
-        cppcheck
+        cppcheck \
+	&& \
+	apt-get clean && \
+	apt-get autoremove && \
+	rm -rf /var/lib/apt/lists/* && \
 	
 # Install pip
 RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
@@ -72,9 +78,7 @@ RUN pip --no-cache-dir install --upgrade ipython && \
 		zmq \
 		&& \
 	python -m ipykernel.kernelspec
-
-run     apt-get install -y -q libavformat-dev libavcodec-dev libavfilter-dev libswscale-dev
-run     apt-get install -y -q libjpeg-dev libpng-dev libtiff-dev libjasper-dev zlib1g-dev libopenexr-dev libeigen3-dev libtbb-dev
+	
 run wget -q https://github.com/opencv/opencv/archive/3.3.1.zip
 run unzip -q 3.3.1.zip
 run mkdir opencvbuild
