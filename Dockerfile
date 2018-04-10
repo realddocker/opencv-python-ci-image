@@ -32,6 +32,7 @@ RUN apt-get update && \
 	python3-dev \
 	python3-tk \
 	python3-numpy \
+	curl \
         cppcheck
 	
 # Install pip
